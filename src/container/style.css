@@ -1,0 +1,356 @@
+* {
+    font-family: 'Lora', serif;
+}
+
+.lifestyle {
+    width: 100%;
+    height: 800px;
+    background-image: url('../assets/home_lifestyle_blog_sectionbg1.jpg');
+    background-position: center;
+}
+
+.header {
+    padding: 15px;
+    display: flex;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+.menu > li a {
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    color: white;
+    opacity: 0.6;
+    font-size: 18px;
+    text-align: center;
+}
+.menu > li {
+    line-height: 38px;
+}
+
+.menu > li a:hover {
+    opacity: 1;
+}
+
+.menu > li:first-child a {
+    opacity: 1;
+}
+
+.menu > li:last-child a {
+    opacity: 0.85;
+    color: #f3c070;
+}
+
+.slogan_lifestyle {
+    padding: 20px;
+    text-align: center;
+    line-height: 800px;
+    opacity: 0.85;
+}
+.slogan_lifestyle img {
+    width: 100%;
+    max-width: 505px;
+}
+
+@media (max-width: 1239px) {
+    .nav-mobile-menu {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        margin-left: auto;
+        margin-right: 25px;
+    }
+
+    .nav-mobile-menu span {
+        height: 1px;
+        background-color: #db9d3a;
+        position: absolute;
+        left: 0;
+        right: 0;
+        transition: 0.25s ease-in-out;
+    }
+    .nav-mobile-menu span:first-child {
+        top: 6px;
+    }
+    .nav-mobile-menu span:nth-child(2) {
+        top: 14px;
+    }
+    .nav-mobile-menu span:last-child {
+        bottom: 6px;
+    }
+
+    .nav-mobile-menu.active-menu span:first-child {
+        top: 50%;
+        transform: rotate(45deg);
+    }
+    .nav-mobile-menu.active-menu span:nth-child(2) {
+        top: 50%;
+        transform: rotate(-45deg);
+    }
+    .nav-mobile-menu.active-menu span:last-child {
+        transform: scale(0);
+    }
+    .navigation {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        right: 30px;
+        bottom: 0;
+        width: 300px;
+        transform: translateX(150%);
+        z-index: 10;
+    }
+    .navigation.active-menu {
+        opacity: 1;
+        visibility: visible;
+        top: 65px;
+        padding: 20px;
+        transform: translateX(0);
+        background-color: #191f25;
+    }
+    .menu {
+        flex-direction: column;
+        height: 100%;
+    }
+    .menu > li a {
+        text-align: left;
+        font-size: 15px;
+    }
+}
+
+.history {
+    width: 100%;
+    position: relative;
+}
+
+.history img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.history span {
+    position: absolute;
+    bottom: 10px;
+    left: 0px;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    margin: 15px;
+}
+
+.history:hover span {
+    border-bottom: #db9d3a solid 5px;
+}
+
+.section2 {
+    padding: 30px;
+    background-color: #dcdfe1;
+}
+
+.mountains {
+    background-image: url('../assets/mountains_background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.mountains_block {
+    width: 100%;
+    /* padding: 10px; */
+    color: white;
+    text-align: center;
+    line-height: 24px;
+}
+
+.author_block {
+    background-color: #f0f1f2;
+}
+
+.brackets {
+    height: 30px;
+    margin-bottom: 15px;
+}
+
+.mountains_block h4 {
+    font-size: 17px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    color: #db9d3a;
+}
+
+.mountains_block h3 {
+    font-size: 17px;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.mountains_block h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.author_block {
+    padding: 20px;
+    text-align: center;
+    line-height: 25px;
+    height: 100%;
+}
+
+.author_block h4 {
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: #db9d3a;
+    font-weight: 400;
+}
+.author_block a {
+    text-decoration: none;
+    color: #191f25;
+    font-weight: 400;
+}
+
+.author_block a h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+.author_block span {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: rgb(157, 159, 160);
+}
+
+.heading {
+    background-color: #f0f1f2;
+    padding: 20px;
+    text-align: center;
+}
+
+.heading a {
+    text-decoration: none;
+    color: #191f25;
+    font-size: 30px;
+}
+
+.section3 {
+    background-color: #f0f1f2;
+    padding-bottom: 30px;
+}
+
+.about {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 24px;
+}
+
+.about_text_black {
+    font-size: 14px;
+    line-height: 20px;
+    padding-bottom: 20px;
+}
+
+.about_text_grey {
+    font-size: 14px;
+    color: grey;
+    line-height: 20px;
+    padding-bottom: 20px;
+}
+
+.about_author {
+    padding-left: 40px;
+    background-image: url('../assets/home_lifestyle_author.png');
+    background-repeat: no-repeat;
+    padding-bottom: 15px;
+}
+
+.about_author p {
+    font-size: 15px;
+    font-weight: 900;
+    padding-bottom: 10px;
+}
+
+.button {
+    width: 120px;
+    height: 45px;
+    border: solid 2px #db9d3a;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.button a {
+    text-decoration: none;
+    color: #db9d3a;
+    line-height: 40px;
+}
+
+.button:hover {
+    background-color: #db9d3a;
+}
+
+.button a:hover {
+    color: white;
+}
+
+.footer {
+    background-color: #191f25;
+    color: #cccccc;
+}
+
+.footer a {
+    text-decoration: none;
+    color: grey;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.block {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.block_footer {
+    font-size: 22px;
+    color: white;
+    padding-bottom: 15px;
+}
+
+.data_footer {
+    background-color: black;
+    color: grey;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.block ul {
+    list-style-type: disc;
+    list-style-position: outside;
+}
+
+.block_list > li > p {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: grey;
+    line-height: 20px;
+}
+
+.block_list > li > p > a {
+    text-decoration: none;
+    color: grey;
+}
+
+.footer_top {
+    border-top: solid 1px grey;
+}
