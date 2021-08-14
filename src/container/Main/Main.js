@@ -25,65 +25,6 @@ const Main = () => {
         <>
             <Switch>
                 <Route path="/" exact>
-                    <div className="stories">
-                        <div className="row">
-                            <div className="col-xs-12 col-sm-6 col-md-3">
-                                <a href="">
-                                    <div className="history">
-                                        <div>
-                                            <img
-                                                src="images/girl_on_the_beach.jpg"
-                                                alt="girl_on_the_beach"
-                                            />
-                                        </div>
-                                        <span>
-                                            Aenean ligula molstie viverra
-                                            fermentum
-                                        </span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div className="col-xs-12 col-sm-6 col-md-3">
-                                <a href="">
-                                    <div className="history">
-                                        <img src="images/man.jpg" alt="man" />
-                                        <span>
-                                            Vitae adipiscing turpis aenean
-                                            rutrum leo aliquet
-                                        </span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div className="col-xs-12 col-sm-6 col-md-3">
-                                <a href="">
-                                    <div className="history">
-                                        <img
-                                            src="images/boat_girl.jpg"
-                                            alt="boat_girl"
-                                        />
-                                        <span>
-                                            Suspen disse pellen tesque dui proin
-                                            cursus magna
-                                        </span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div className="col-xs-12 col-sm-6 col-md-3">
-                                <a href="">
-                                    <div className="history">
-                                        <img
-                                            src="images/home_lifestyle_blog_hot_4.jpg"
-                                            alt="home_lifestyle_blog_hot_4"
-                                        />
-                                        <span>
-                                            Proin dui sodales imperdiet sit
-                                            sapien fames ac luctus
-                                        </span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                     <div className="section2">
                         <div className="container">
                             <div className="row row-pad">

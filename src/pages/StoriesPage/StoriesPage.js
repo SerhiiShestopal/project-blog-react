@@ -13,6 +13,7 @@ const useStyles = makeStyles({
     media: {
         width: 500,
         height: 'auto',
+        transition: '1.5s',
     },
     cardWrap: {
         display: 'flex',
@@ -44,7 +45,7 @@ const StoriesPage = () => {
                             ({ id, heading, description, image }) => (
                                 <Grid item xs={12} key={id}>
                                     <Card className={classes.cardWrap}>
-                                        <div>
+                                        <div className="history">
                                             <img
                                                 src={image}
                                                 className={classes.media}

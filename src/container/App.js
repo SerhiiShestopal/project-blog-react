@@ -5,6 +5,8 @@ import './style.css'
 import './grid.css'
 import Main from './Main/Main'
 import Footer from './Footer/Footer'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 const App = () => {
     return (

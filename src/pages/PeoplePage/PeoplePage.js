@@ -13,18 +13,11 @@ const useStyles = makeStyles({
     media: {
         width: 500,
         height: 'auto',
+        transition: '1.5s',
     },
     cardWrap: {
         display: 'flex',
         padding: 15,
-    },
-    rightArticle: {
-        padding: 15,
-        textAlign: 'center',
-        fontSize: 18,
-    },
-    center: {
-        textAlign: 'center',
     },
 })
 
@@ -37,22 +30,22 @@ const PeoplePage = () => {
         <>
             <Container>
                 <CardContent>
-                    <h1 className={classes.center}>People and their life</h1>
-
                     <Grid container spacing={3}>
                         {PeopleFilter.map(
                             ({ id, heading, description, image }) => (
                                 <Grid item xs={12} key={id}>
-                                    <Card className={classes.cardWrap}>
-                                        <div>
-                                            <img
-                                                src={image}
-                                                className={classes.media}
-                                            />
-                                        </div>
-                                        <div className={classes.rightArticle}>
-                                            <h2>{heading}</h2>
-                                            <p>{description}</p>
+                                    <Card>
+                                        <div className={classes.cardWrap}>
+                                            <div className="history col-xs-12 col-sm-5">
+                                                <img
+                                                    src={image}
+                                                    className={classes.media}
+                                                />
+                                            </div>
+                                            <div className="col-xs-12 col-sm-7 rightArticle">
+                                                <h2>{heading}</h2>
+                                                <p>{description}</p>
+                                            </div>
                                         </div>
                                     </Card>
                                 </Grid>

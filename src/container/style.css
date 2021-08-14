@@ -9,11 +9,23 @@
     background-position: center;
 }
 
+.subheader {
+    width: 100%;
+    height: 350px;
+    background-image: url('../assets/home_lifestyle_subheader.jpg');
+    background-position-x: center;
+}
+
 .header {
     padding: 15px;
     display: flex;
 }
 
+.header-block {
+    position: relative;
+    height: 1030px;
+    background-color: #dcdfe1;
+}
 .menu {
     display: flex;
     justify-content: space-between;
@@ -42,11 +54,6 @@
     opacity: 1;
 }
 
-.menu > li:last-child a {
-    opacity: 0.85;
-    color: #f3c070;
-}
-
 .slogan_lifestyle {
     padding: 20px;
     text-align: center;
@@ -56,6 +63,24 @@
 .slogan_lifestyle img {
     width: 100%;
     max-width: 505px;
+}
+
+.sub_heading {
+    background: none;
+    color: white;
+    font-size: 28px;
+    padding: 20px;
+    text-align: center;
+}
+
+.sub_heading h2 {
+    font-weight: 400;
+}
+
+.rightArticle {
+    padding: 15;
+    text-align: center;
+    font-size: 18px;
 }
 
 @media (max-width: 1239px) {
@@ -123,17 +148,27 @@
         text-align: left;
         font-size: 15px;
     }
+    .slider-slick {
+        opacity: 0;
+        visibility: hidden;
+    }
+    .header-block {
+        height: 800px;
+    }
 }
 
 .history {
     width: 100%;
     position: relative;
+    overflow: hidden;
+    display: inline-block;
 }
 
 .history img {
     width: 100%;
     height: 100%;
     display: block;
+    transition: 1.5s;
 }
 
 .history span {
@@ -148,7 +183,21 @@
 }
 
 .history:hover span {
-    border-bottom: #db9d3a solid 5px;
+    color: #db9d3a;
+}
+
+.history:hover img {
+    transform: scale(1.2);
+}
+
+.slide-block {
+    padding: 10px;
+}
+
+.slider {
+    position: absolute;
+    top: 563px;
+    left: 6.66667%;
 }
 
 .section2 {
