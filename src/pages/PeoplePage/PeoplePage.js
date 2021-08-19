@@ -8,6 +8,7 @@ import {
 } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import ArticleArray from '../../components/Articles/ArticleArray'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles({
     media: {
@@ -33,18 +34,27 @@ const PeoplePage = () => {
                     <Grid container spacing={3}>
                         {PeopleFilter.map(
                             ({ id, heading, description, image }) => (
-                                <Grid item xs={12} key={id}>
+                                <Grid item key={id}>
                                     <Card>
                                         <div className={classes.cardWrap}>
-                                            <div className="history col-xs-12 col-sm-5">
+                                            <div className="col-xs-12 col-sm-5 history ">
                                                 <img
                                                     src={image}
                                                     className={classes.media}
                                                 />
                                             </div>
                                             <div className="col-xs-12 col-sm-7 rightArticle">
-                                                <h2>{heading}</h2>
-                                                <p>{description}</p>
+                                                <h2>
+                                                    <Link
+                                                        to={`/article/${id}`}
+                                                        className="heading-decoration"
+                                                    >
+                                                        {heading}
+                                                    </Link>
+                                                </h2>
+                                                <p className="description-decoration">
+                                                    {description}
+                                                </p>
                                             </div>
                                         </div>
                                     </Card>

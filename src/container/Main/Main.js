@@ -7,6 +7,7 @@ import PeoplePage from '../../pages/PeoplePage/PeoplePage'
 import { Link } from 'react-router-dom'
 import PlacesPage from '../../pages/PlacesPage/PlacesPage'
 import StoriesPage from '../../pages/StoriesPage/StoriesPage'
+import ArticlePage from '../../pages/ArticlePage/ArticlePage'
 
 const Main = () => {
     const PeopleFilter = ArticleArray.filter(
@@ -84,7 +85,14 @@ const Main = () => {
                                             <Grid item xs={12} sm={4} key={id}>
                                                 <div className="history">
                                                     <img src={image} />
-                                                    <span>{heading}</span>
+                                                    <span>
+                                                        <Link
+                                                            to={`/article/${id}`}
+                                                            className="heading-decoration heading-main"
+                                                        >
+                                                            {heading}
+                                                        </Link>
+                                                    </span>
                                                 </div>
                                             </Grid>
                                         )
@@ -113,7 +121,12 @@ const Main = () => {
                                                         <div className="history">
                                                             <img src={image} />
                                                             <span>
-                                                                {heading}
+                                                                <Link
+                                                                    to={`/article/${id}`}
+                                                                    className="heading-decoration heading-main"
+                                                                >
+                                                                    {heading}
+                                                                </Link>
                                                             </span>
                                                         </div>
                                                     </Grid>
@@ -141,7 +154,12 @@ const Main = () => {
                                                         <div className="history">
                                                             <img src={image} />
                                                             <span>
-                                                                {heading}
+                                                                <Link
+                                                                    to={`/article/${id}`}
+                                                                    className="heading-decoration heading-main"
+                                                                >
+                                                                    {heading}
+                                                                </Link>
                                                             </span>
                                                         </div>
                                                     </Grid>
@@ -253,6 +271,7 @@ const Main = () => {
                     path="/stories"
                     render={() => <StoriesPage StoriesFilter={StoriesFilter} />}
                 />
+                <Route path="/article/:id" component={ArticlePage} />
             </Switch>
         </>
     )
