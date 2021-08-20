@@ -1,4 +1,4 @@
-const ArticleArray = [
+const articleArray = [
     {
         id: 1,
         heading: 'Vestibulum commodo volutpat laoreet',
@@ -133,4 +133,4 @@ export const getArticlesObj = (array) => {
     )
 }
 
-export default ArticleArray
+export default articleArray

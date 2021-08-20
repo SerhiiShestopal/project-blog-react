@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import Slider from 'react-slick'
-
-import PropTypes from 'prop-types'
 import ArticleArray from '../../components/Articles/ArticleArray'
 import { Link } from 'react-router-dom'
 
@@ -40,10 +38,4 @@ export default class Slick extends Component {
             </div>
         )
     }
-}
-
-Slick.propTypes = {
-    heading: PropTypes.string.isRequired,
-    image: PropTypes.string,
-    category: PropTypes.string.isRequired,
 }

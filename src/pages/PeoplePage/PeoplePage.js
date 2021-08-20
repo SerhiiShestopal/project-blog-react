@@ -5,10 +5,13 @@ import {
     Grid,
     makeStyles,
     Card,
+    Button,
 } from '@material-ui/core'
 import PropTypes from 'prop-types'
-import ArticleArray from '../../components/Articles/ArticleArray'
 import { Link } from 'react-router-dom'
+import FavoriteIcon from '@material-ui/icons/Favorite'
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
+import { connect } from 'react-redux'
 
 const useStyles = makeStyles({
     media: {
@@ -22,10 +25,7 @@ const useStyles = makeStyles({
     },
 })
 
-const PeoplePage = () => {
-    const PeopleFilter = ArticleArray.filter(
-        (PeopleFilter) => PeopleFilter.category == 'people'
-    )
+const PeoplePage = ({ PeopleFilter, isLiked = false }) => {
     const classes = useStyles()
     return (
         <>
@@ -34,7 +34,7 @@ const PeoplePage = () => {
                     <Grid container spacing={3}>
                         {PeopleFilter.map(
                             ({ id, heading, description, image }) => (
-                                <Grid item key={id}>
+                                <Grid key={id}>
                                     <Card>
                                         <div className={classes.cardWrap}>
                                             <div className="col-xs-12 col-sm-5 history ">
@@ -55,6 +55,13 @@ const PeoplePage = () => {
                                                 <p className="description-decoration">
                                                     {description}
                                                 </p>
+                                                <Button variant="outlined">
+                                                    {isLiked ? (
+                                                        <FavoriteIcon />
+                                                    ) : (
+                                                        <FavoriteBorderIcon />
+                                                    )}
+                                                </Button>
                                             </div>
                                         </div>
                                     </Card>
@@ -68,11 +75,17 @@ const PeoplePage = () => {
     )
 }
 
-Array.propTypes = {
-    heading: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+PeoplePage.propTypes = {
+    PeopleFilter: PropTypes.array,
+    id: PropTypes.number,
+    heading: PropTypes.string,
+    description: PropTypes.string,
     image: PropTypes.string,
-    category: PropTypes.string.isRequired,
+    isLiked: PropTypes.bool,
 }
 
-export default PeoplePage
+const mapStateToProps = (state, { id }) => ({
+    isLiked: state[id],
+})
+
+export default connect(mapStateToProps)(PeoplePage)

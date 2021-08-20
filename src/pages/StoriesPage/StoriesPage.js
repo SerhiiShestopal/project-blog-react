@@ -5,10 +5,14 @@ import {
     Grid,
     makeStyles,
     Card,
+    Button,
 } from '@material-ui/core'
 import PropTypes from 'prop-types'
-import ArticleArray from '../../components/Articles/ArticleArray'
+
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import FavoriteIcon from '@material-ui/icons/Favorite'
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 
 const useStyles = makeStyles({
     media: {
@@ -22,11 +26,9 @@ const useStyles = makeStyles({
     },
 })
 
-const StoriesPage = () => {
-    const StoriesFilter = ArticleArray.filter(
-        (StoriesFilter) => StoriesFilter.category == 'stories'
-    )
+const StoriesPage = ({ StoriesFilter, isLiked = false }) => {
     const classes = useStyles()
+
     return (
         <>
             <Container>
@@ -55,6 +57,13 @@ const StoriesPage = () => {
                                                 <p className="description-decoration">
                                                     {description}
                                                 </p>
+                                                <Button variant="outlined">
+                                                    {isLiked ? (
+                                                        <FavoriteIcon />
+                                                    ) : (
+                                                        <FavoriteBorderIcon />
+                                                    )}
+                                                </Button>
                                             </div>
                                         </div>
                                     </Card>
@@ -68,11 +77,14 @@ const StoriesPage = () => {
     )
 }
 
-Array.propTypes = {
-    heading: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    image: PropTypes.string,
-    category: PropTypes.string.isRequired,
+StoriesPage.propTypes = {
+    id: PropTypes.number,
+    StoriesFilter: PropTypes.array,
+    isLiked: PropTypes.bool,
 }
 
-export default StoriesPage
+const mapStateToProps = (state, id) => ({
+    isLiked: state[id],
+})
+
+export default connect(mapStateToProps)(StoriesPage)

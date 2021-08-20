@@ -5,10 +5,13 @@ import {
     Grid,
     makeStyles,
     Card,
+    Button,
 } from '@material-ui/core'
 import PropTypes from 'prop-types'
-import ArticleArray from '../../components/Articles/ArticleArray'
 import { Link } from 'react-router-dom'
+import FavoriteIcon from '@material-ui/icons/Favorite'
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
+import { connect } from 'react-redux'
 
 const useStyles = makeStyles({
     media: {
@@ -22,10 +25,7 @@ const useStyles = makeStyles({
     },
 })
 
-const PlacesPage = () => {
-    const PlacesFilter = ArticleArray.filter(
-        (PlacesFilter) => PlacesFilter.category == 'places'
-    )
+const PlacesPage = ({ PlacesFilter, isLiked = false }) => {
     const classes = useStyles()
     return (
         <>
@@ -34,10 +34,10 @@ const PlacesPage = () => {
                     <Grid container spacing={3}>
                         {PlacesFilter.map(
                             ({ id, heading, description, image }) => (
-                                <Grid item xs={12} key={id}>
+                                <Grid item key={id}>
                                     <Card>
                                         <div className={classes.cardWrap}>
-                                            <div className="history col-xs-12 col-sm-5">
+                                            <div className="col-xs-12 col-sm-5 history ">
                                                 <img
                                                     src={image}
                                                     className={classes.media}
@@ -55,6 +55,13 @@ const PlacesPage = () => {
                                                 <p className="description-decoration">
                                                     {description}
                                                 </p>
+                                                <Button variant="outlined">
+                                                    {isLiked ? (
+                                                        <FavoriteIcon />
+                                                    ) : (
+                                                        <FavoriteBorderIcon />
+                                                    )}
+                                                </Button>
                                             </div>
                                         </div>
                                     </Card>
@@ -68,11 +75,17 @@ const PlacesPage = () => {
     )
 }
 
-Array.propTypes = {
-    heading: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+PlacesPage.propTypes = {
+    PlacesFilter: PropTypes.array,
+    id: PropTypes.number,
+    heading: PropTypes.string,
+    description: PropTypes.string,
     image: PropTypes.string,
-    category: PropTypes.string.isRequired,
+    isLiked: PropTypes.bool,
 }
 
-export default PlacesPage
+const mapStateToProps = (state, { id }) => ({
+    isLiked: state[id],
+})
+
+export default connect(mapStateToProps)(PlacesPage)

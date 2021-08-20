@@ -1,6 +1,5 @@
 import React from 'react'
 import ArticleArray from '../../components/Articles/ArticleArray'
-import PropTypes from 'prop-types'
 import { Route, Switch } from 'react-router-dom'
 import { Grid } from '@material-ui/core'
 import PeoplePage from '../../pages/PeoplePage/PeoplePage'
@@ -8,15 +7,20 @@ import { Link } from 'react-router-dom'
 import PlacesPage from '../../pages/PlacesPage/PlacesPage'
 import StoriesPage from '../../pages/StoriesPage/StoriesPage'
 import ArticlePage from '../../pages/ArticlePage/ArticlePage'
+// import { connect } from 'react-redux'
 
 const Main = () => {
     const PeopleFilter = ArticleArray.filter(
         (PeopleFilter) => PeopleFilter.category == 'people'
     )
 
+    console.log(PeopleFilter)
+
     const PlacesFilter = ArticleArray.filter(
         (PlacesFilter) => PlacesFilter.category == 'places'
     )
+
+    console.log(PlacesFilter)
 
     const StoriesFilter = ArticleArray.filter(
         (StoriesFilter) => StoriesFilter.category == 'stories'
@@ -259,6 +263,56 @@ const Main = () => {
                         </div>
                     </div>
                 </Route>
+                {/* <Grid>
+                    {PeopleFilter.map(({ id, heading, description, image }) => (
+                        <Grid key={id}>
+                            <Route
+                                path="/people"
+                                render={() => (
+                                    <PeoplePage
+                                        id={id}
+                                        heading={heading}
+                                        description={description}
+                                        image={image}
+                                    />
+                                )}
+                            />
+                        </Grid>
+                    ))}
+                </Grid> */}
+                {/* <Grid>
+                    {PlacesFilter.map(({ id, heading, description, image }) => (
+                        <Grid key={id}>
+                            <Route
+                                path="/places"
+                                render={() => (
+                                    <PlacesPage
+                                        id={id}
+                                        heading={heading}
+                                        description={description}
+                                        image={image}
+                                    />
+                                )}
+                            />
+                        </Grid>
+                    ))}
+                </Grid> */}
+                {/* <Route path="/places">
+                    <Grid>
+                        {PlacesFilter.map(
+                            ({ id, heading, description, image }) => (
+                                <Grid key={id}>
+                                    <PlacesPage
+                                        id={id}
+                                        heading={heading}
+                                        description={description}
+                                        image={image}
+                                    />
+                                </Grid>
+                            )
+                        )}
+                    </Grid>
+                </Route> */}
                 <Route
                     path="/people"
                     render={() => <PeoplePage PeopleFilter={PeopleFilter} />}
@@ -271,16 +325,27 @@ const Main = () => {
                     path="/stories"
                     render={() => <StoriesPage StoriesFilter={StoriesFilter} />}
                 />
+                {/* <Route path="/places">
+                    {ArticleArray.map(({ id, heading, description, image }) => (
+                        <Grid key={id}>
+                            <PlacesPage
+                                id={id}
+                                heading={heading}
+                                description={description}
+                                image={image}
+                            />
+                        </Grid>
+                    ))}
+                </Route> */}
+
                 <Route path="/article/:id" component={ArticlePage} />
             </Switch>
         </>
     )
 }
 
-Array.propTypes = {
-    heading: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    image: PropTypes.string,
-    category: PropTypes.string.isRequired,
-}
+// const mapStateToProps = (state, { id }) => ({
+//     isLiked: state[id],
+// })
+
 export default Main
