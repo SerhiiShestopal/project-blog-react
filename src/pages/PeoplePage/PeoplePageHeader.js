@@ -17,7 +17,9 @@ const PeoplePageHeader = () => {
                                     <Link to="/">Home</Link>
                                 </li>
                                 <li>
-                                    <Link to="/">Hot articles</Link>
+                                    <Link to="/favorites">
+                                        Favorites articles
+                                    </Link>
                                 </li>
                                 <li>
                                     <Link to="/people">People</Link>

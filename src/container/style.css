@@ -179,7 +179,9 @@
 }
 .description-decoration {
     color: gray;
-    padding-left: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: justify;
 }
 
 .history {
@@ -495,4 +497,80 @@
 
 .fred {
     color: red;
+}
+
+.block-liked {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: rgb(168, 168, 168, 0.1);
+    border-radius: 5px;
+    line-height: 32px;
+}
+
+.dis-liked {
+    width: 30px;
+    height: 30px;
+    background-image: url('../assets/heart-dislike.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0px;
+    background-color: transparent;
+}
+
+.liked {
+    width: 30px;
+    height: 30px;
+    background-image: url('../assets/heart-like.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0px;
+    background-color: transparent;
+}
+
+.liked-header {
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    background-image: url('../assets/heart-like.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0px;
+    background-color: transparent;
+}
+
+.row-header {
+    display: flex;
+}
+
+.liked-text {
+    margin: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: grey;
+}
+
+.liked-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.read-more-text {
+    margin: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-bottom: solid 1px rgb(245, 159, 20, 0);
+    color: #db9d3a;
+}
+
+.read-more-text:hover {
+    color: rgb(245, 159, 20);
+    border-bottom: solid 1px rgb(245, 159, 20);
+}
+
+.read-more-decoration {
+    text-decoration: none;
 }

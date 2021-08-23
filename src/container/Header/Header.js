@@ -7,6 +7,7 @@ import PeoplePageHeader from '../../pages/PeoplePage/PeoplePageHeader'
 import PlacesPageHeader from '../../pages/PlacesPage/PlacesPageHeader'
 import StoriesPageHeader from '../../pages/StoriesPage/StoriesPageHeader'
 import ArticlePageHeader from '../../pages/ArticlePage/ArticlePageHeader'
+import FavoritesPageHeader from '../../pages/FavoritesPage/FavoritesPageHeader'
 
 const Header = () => {
     return (
@@ -26,7 +27,13 @@ const Header = () => {
                                                 <Link to="/">Home</Link>
                                             </li>
                                             <li>
-                                                <Link to="/">Hot articles</Link>
+                                                <div className="row-header">
+                                                    <Link to="/favorites">
+                                                        Favorites articles
+                                                    </Link>
+                                                    <div className="liked-header"></div>
+                                                    <div>2</div>
+                                                </div>
                                             </li>
                                             <li>
                                                 <Link to="/people">People</Link>
@@ -69,6 +76,10 @@ const Header = () => {
                 <Route
                     path="/people"
                     render={() => <PeoplePageHeader />}
+                ></Route>
+                <Route
+                    path="/favorites"
+                    render={() => <FavoritesPageHeader />}
                 ></Route>
                 <Route
                     path="/places"

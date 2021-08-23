@@ -5,12 +5,11 @@ import {
     Grid,
     makeStyles,
     Card,
-    Button,
 } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
+// import FavoriteIcon from '@material-ui/icons/Favorite'
+// import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 import { connect } from 'react-redux'
 
 const useStyles = makeStyles({
@@ -25,49 +24,77 @@ const useStyles = makeStyles({
     },
 })
 
-const PeoplePage = ({ PeopleFilter, isLiked = false }) => {
+const PeoplePage = ({
+    id,
+    heading,
+    description,
+    image,
+    isLiked = false,
+    addLike,
+    removeLike,
+}) => {
     const classes = useStyles()
+
     return (
         <>
             <Container>
                 <CardContent>
-                    <Grid container spacing={3}>
-                        {PeopleFilter.map(
-                            ({ id, heading, description, image }) => (
-                                <Grid key={id}>
-                                    <Card>
-                                        <div className={classes.cardWrap}>
-                                            <div className="col-xs-12 col-sm-5 history ">
-                                                <img
-                                                    src={image}
-                                                    className={classes.media}
-                                                />
-                                            </div>
-                                            <div className="col-xs-12 col-sm-7 rightArticle">
-                                                <h2>
-                                                    <Link
-                                                        to={`/article/${id}`}
-                                                        className="heading-decoration"
-                                                    >
-                                                        {heading}
-                                                    </Link>
-                                                </h2>
-                                                <p className="description-decoration">
-                                                    {description}
-                                                </p>
-                                                <Button variant="outlined">
-                                                    {isLiked ? (
-                                                        <FavoriteIcon />
-                                                    ) : (
-                                                        <FavoriteBorderIcon />
-                                                    )}
-                                                </Button>
-                                            </div>
+                    <Grid>
+                        <Card>
+                            <div className={classes.cardWrap}>
+                                <div className="col-xs-12 col-sm-5 history ">
+                                    <img
+                                        src={image}
+                                        className={classes.media}
+                                    />
+                                </div>
+                                <div className="col-xs-12 col-sm-7 rightArticle">
+                                    <h2>
+                                        <Link
+                                            to={`/article/${id}`}
+                                            className="heading-decoration"
+                                        >
+                                            {heading}
+                                        </Link>
+                                    </h2>
+                                    <p className="description-decoration">
+                                        {description}
+                                    </p>
+
+                                    <div className="block-liked">
+                                        <div className="row">
+                                            <p className="liked-text">
+                                                Do you like it?
+                                            </p>
+                                            <button
+                                                onClick={() =>
+                                                    isLiked
+                                                        ? removeLike(id)
+                                                        : addLike(id)
+                                                }
+                                                className="liked-button"
+                                            >
+                                                {isLiked ? (
+                                                    <div className="liked" />
+                                                ) : (
+                                                    <div className="dis-liked" />
+                                                )}
+                                            </button>
                                         </div>
-                                    </Card>
-                                </Grid>
-                            )
-                        )}
+                                        <div className="read-more-block">
+                                            <Link
+                                                to={`/article/${id}`}
+                                                className="read-more-decoration"
+                                            >
+                                                <p className="read-more-text">
+                                                    Read more
+                                                </p>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Card>
                     </Grid>
                 </CardContent>
             </Container>
@@ -76,16 +103,29 @@ const PeoplePage = ({ PeopleFilter, isLiked = false }) => {
 }
 
 PeoplePage.propTypes = {
-    PeopleFilter: PropTypes.array,
     id: PropTypes.number,
     heading: PropTypes.string,
     description: PropTypes.string,
     image: PropTypes.string,
     isLiked: PropTypes.bool,
+    addLike: PropTypes.func,
+    removeLike: PropTypes.func,
 }
 
 const mapStateToProps = (state, { id }) => ({
     isLiked: state[id],
 })
+const mapDispatchToProps = (dispatch) => ({
+    addLike: (id) =>
+        dispatch({
+            type: 'LIKE',
+            id,
+        }),
+    removeLike: (id) =>
+        dispatch({
+            type: 'DISLIKE',
+            id,
+        }),
+})
 
-export default connect(mapStateToProps)(PeoplePage)
+export default connect(mapStateToProps, mapDispatchToProps)(PeoplePage)

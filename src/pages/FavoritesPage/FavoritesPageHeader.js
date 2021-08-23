@@ -2,7 +2,7 @@ import React from 'react'
 import Logo from '../../components/Logo/Logo'
 import { Link } from 'react-router-dom'
 
-const PlacesPageHeader = () => {
+const FavoritesPageHeader = () => {
     return (
         <>
             <div className="subheader">
@@ -46,11 +46,11 @@ const PlacesPageHeader = () => {
                     </div>
                 </div>
                 <div className="sub_heading">
-                    <h2>Places</h2>
+                    <h2>Favorites Articles</h2>
                 </div>
             </div>
         </>
     )
 }
 
-export default PlacesPageHeader
+export default FavoritesPageHeader
